@@ -22,8 +22,8 @@ processor = AutoProcessor.from_pretrained(model_id)
 image_folder = r"D:\iNaturalist\test_3000"
 
 
-output_csv = "human_presence_results_qwen.csv"
-prompt = "Does this picture contain human presence? Answer only Yes or No."
+output_csv = "blurry_results_qwen.csv"
+prompt = f"Does the image contain other taxa than the one? Answer only Yes or No."
 
 
 # Check if the directory exists
@@ -87,7 +87,7 @@ for image_file in image_paths:
 # Save results to CSV
 with open(output_csv, mode='w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["Image Name", "Human Presence"])
+    writer.writerow(["Image Name", "Blurry"])
     writer.writerows(results)
 
 print(f"Results saved to {output_csv}")
